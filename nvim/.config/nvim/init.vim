@@ -5,8 +5,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'chriskempson/base16-vim'
 
 " Bar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'daviesjamie/vim-base16-lightline'
 
 " Fuzzy finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -16,6 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/denite.nvim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 
 " Initialize plugin system
@@ -24,7 +25,6 @@ call plug#end()
 " Configure theme
 let base16colorspace=256       	" Access colors present in 256 colorspace
 colorscheme base16-oceanicnext 	" Set the theme
-let g:airline_theme='base16'
 
 set nocompatible
 
@@ -63,6 +63,11 @@ augroup reload_vimrc
     autocmd!
     autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup END
+
+" Configure bar
+let g:lightline = {
+\ 'colorscheme': 'base16',
+\ }
 
 " Configure general plugins
 let g:deoplete#enable_at_startup = 1        " Enable deoplete.nvim at startup
