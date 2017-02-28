@@ -43,3 +43,9 @@ bindkey "${terminfo[kend]}" end-of-line
 [ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.zalias ] && source ~/.zalias
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Configure environment variables
+export GOROOT=$HOME/.go
+export GOPATH=$HOME/Go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
