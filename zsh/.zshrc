@@ -36,16 +36,24 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 
-# Key bindings
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
-
+# Source additional config files
 [ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.zalias ] && source ~/.zalias
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Source completions
+source <(kubectl completion zsh)
+
+# Key bindings
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
 
 # Configure environment variables
 export GOROOT=$HOME/.go
 export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+export PATH="$HOME/.yarn/bin:$PATH"
