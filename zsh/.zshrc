@@ -45,11 +45,16 @@ zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 source <(kubectl completion zsh)
 
 # Key bindings
-bindkey "${terminfo[khome]}" beginning-of-line
-bindkey "${terminfo[kend]}" end-of-line
+#bindkey "${terminfo[khome]}" beginning-of-line
+#bindkey "${terminfo[kend]}" end-of-line
+#bindkey "\033[1~" beginning-of-line
+#bindkey "\033[4~" end-of-line
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"   delete-char
 
 # Configure environment variables
-export GOROOT=$HOME/.go
+#export GOROOT=$HOME/.go
 export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
