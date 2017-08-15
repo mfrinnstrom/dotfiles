@@ -61,4 +61,27 @@ export PATH=$PATH:$GOROOT/bin
 
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-export PATH="$HOME/.yarn/bin:$PATH"
+# Scripts
+function upfind() {
+  dir=`pwd`
+  while [ "$dir" != "/" ]; do
+    p=`find "$dir" -maxdepth 1 -name $1`
+    if [ ! -z $p ]; then
+      echo "$p"
+      return
+    fi
+    dir=`dirname "$dir"`
+  done
+}
+
+# Find closest Gradle wrapper
+export GRADLE_DEFAULT_OPTS=''
+function gw() {
+  GW="$(upfind gradlew)"
+  if [ -z "$GW" ]; then
+    echo "Gradle wrapper not found."
+  else
+    dir=`dirname "$GW"`
+    $GW $GRADLE_DEFAULT_OPTS --project-dir $dir $@
+  fi
+}
