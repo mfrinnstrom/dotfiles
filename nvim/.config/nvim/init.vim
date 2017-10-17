@@ -18,6 +18,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
+Plug 'unblevable/quick-scope'
 
 " Initialize plugin system
 call plug#end()
@@ -43,7 +44,7 @@ set hidden                 	" Switch between buffers without having to save firs
 set laststatus=2         	" Always show statusline.
 set display=lastline	  	" Show as much as possible of the last line.
 
-set showmode               	" Show current mode in command-line.
+set noshowmode               	" Don't show current mode in command-line.
 set showcmd                	" Show already typed keys when more are expected.
 set wildmenu                    " Visual autocomplete for command menu
 
@@ -54,9 +55,11 @@ set splitbelow             	" Open new windows below the current window.
 set splitright             	" Open new windows right of the current window.
 
 set cursorline             	" Find the current line quickly.
+set nowrap                      " Don't wrap lines
 set wrapscan               	" Searches wrap around end-of-file.
 
 set updatetime=250              " Update more often, default is 4s
+set signcolumn=yes              " Always show sign column for changes
 
 " Reload vimrc when it's saved
 augroup reload_vimrc
@@ -64,15 +67,47 @@ augroup reload_vimrc
     autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup END
 
-" Configure bar
+" =================================
+" Configure general key bindings
+" =================================
+let mapleader = ',' " Configure leader
+
+" Denite
+nnoremap <C-p> :<C-u>Denite file_rec<CR> " open file
+nnoremap <leader>s :<C-u>Denite buffer<CR> " switch buffer
+nnoremap <leader>d :<C-u>DeniteBufferDir file_rec<CR> " open file in current dir
+nnoremap <leader>8 :<C-u>DeniteCursorWord grep:. -mode=normal<CR> " search for the word the curser is on
+
+" =================================
+" Plugin settings
+" =================================
+
+" === lightline ===================
 let g:lightline = {
 \ 'colorscheme': 'base16',
 \ }
 
-" Configure general plugins
+" === deoplete ====================
 let g:deoplete#enable_at_startup = 1        " Enable deoplete.nvim at startup
-let g:airline_powerline_fonts = 1           " Use PowerLine fonts in vim-airline
-let g:gitgutter_sign_column_always = 1      " Always show sign column for changes
 
-" Configure general key bindings
-let mapleader = ','                         " Configure leader
+" === quick-scope =================
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" === denite ======================
+" Use ag
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" Change mappings.
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+
+" Change default prompt
+call denite#custom#option('default', 'prompt', '>')
