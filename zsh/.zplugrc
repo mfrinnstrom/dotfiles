@@ -7,7 +7,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 # Customize look & feel
 zplug "mafredri/zsh-async", defer:0
 zplug "sindresorhus/pure", use:pure.zsh, as:theme
-zplug "chriskempson/base16-shell", use:"scripts/base16-oceanicnext.sh", defer:0
+# zplug "chriskempson/base16-shell", use:"scripts/base16-oceanicnext.sh", defer:0
 
 # History, autosuggestions and completions
 zplug "zsh-users/zsh-autosuggestions"
@@ -20,6 +20,9 @@ zplug "supercrabtree/k"
 
 # ssh-agent
 zplug 'plugins/ssh-agent', from:oh-my-zsh, ignore:oh-my-zsh.sh
+
+# aws-cli
+zplug 'plugins/aws', from:oh-my-zsh, ignore:oh-my-zsh.sh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
