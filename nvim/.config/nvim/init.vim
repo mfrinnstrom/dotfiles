@@ -2,11 +2,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Theme
-Plug 'chriskempson/base16-vim'
+"Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
 
 " Bar
 Plug 'itchyny/lightline.vim'
-Plug 'daviesjamie/vim-base16-lightline'
+"Plug 'daviesjamie/vim-base16-lightline'
 
 " Fuzzy finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -25,7 +26,8 @@ call plug#end()
 
 " Configure theme
 let base16colorspace=256       	" Access colors present in 256 colorspace
-colorscheme base16-oceanicnext 	" Set the theme
+"colorscheme base16-oceanicnext 	" Set the theme
+colorscheme nord
 
 set nocompatible
 
@@ -84,7 +86,7 @@ nnoremap <leader>8 :<C-u>DeniteCursorWord grep:. -mode=normal<CR> " search for t
 
 " === lightline ===================
 let g:lightline = {
-\ 'colorscheme': 'base16',
+\ 'colorscheme': 'nord',
 \ }
 
 " === deoplete ====================
