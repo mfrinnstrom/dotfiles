@@ -41,25 +41,27 @@ zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 [ -f ~/.zalias ] && source ~/.zalias
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Source completions
-source <(kubectl completion zsh)
-
 # Key bindings
-#bindkey "${terminfo[khome]}" beginning-of-line
-#bindkey "${terminfo[kend]}" end-of-line
-#bindkey "\033[1~" beginning-of-line
-#bindkey "\033[4~" end-of-line
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"   delete-char
+bindkey  "^[[3~"  delete-char
+bindkey  "^H"     backward-kill-word
 
 # Configure environment variables
-#export GOROOT=$HOME/.go
 export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-
+export PATH=$PATH:$HOME/.local/bin
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# Configure AWS
+export AWS_DEFAULT_REGION=eu-west-1
+export AWS_SDK_LOAD_CONFIG=true
+
+# Source completions
+source <(kubectl completion zsh)
+source <(npm completion)
+source ~/.local/bin/aws_zsh_completer.sh
 
 # Scripts
 function upfind() {
@@ -85,3 +87,4 @@ function gw() {
     $GW $GRADLE_DEFAULT_OPTS --project-dir $dir $@
   fi
 }
+
