@@ -1,4 +1,4 @@
-#alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/.dotfiles/'
+# ls
 alias ls='ls --color=auto'
 alias la='ls -la --color=auto'
 alias ll='ls -l --color=auto'
@@ -9,3 +9,5 @@ alias update-service=$HOME/Projects/common-services/common-deploy-scripts/create
 alias create-change-set=$HOME/Projects/common-services/common-deploy-scripts/create-change-set.sh
 alias valcf="aws --region eu-west-1 --profile lab cloudformation validate-template --template-body file://$*"
 
+# Tools
+alias uuids="for i in {1..20}; uuidgen"
