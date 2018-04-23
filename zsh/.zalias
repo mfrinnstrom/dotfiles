@@ -1,4 +1,11 @@
 #alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/.dotfiles/'
+alias ls='ls --color=auto'
+alias la='ls -la --color=auto'
+alias ll='ls -l --color=auto'
 
-alias la='ls -la --color'
-alias ll='ls -l --color'
+# AWS
+alias update-stack=$HOME/Projects/common-services/common-deploy-scripts/create-or-update-stack.sh
+alias update-service=$HOME/Projects/common-services/common-deploy-scripts/create-or-update-service.sh
+alias create-change-set=$HOME/Projects/common-services/common-deploy-scripts/create-change-set.sh
+alias valcf="aws --region eu-west-1 --profile lab cloudformation validate-template --template-body file://$*"
+
