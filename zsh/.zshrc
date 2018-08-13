@@ -52,6 +52,7 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:/usr/lib/go-1.10/bin
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Configure AWS
@@ -59,7 +60,7 @@ export AWS_DEFAULT_REGION=eu-west-1
 export AWS_SDK_LOAD_CONFIG=true
 
 # Source completions
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 source <(npm completion)
 source ~/.local/bin/aws_zsh_completer.sh
 
