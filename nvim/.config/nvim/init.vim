@@ -2,9 +2,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Theme
-Plug 'dylanaraps/wal.vim'
 "Plug 'chriskempson/base16-vim'
-"Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 
 " Bar
 Plug 'itchyny/lightline.vim'
@@ -27,8 +26,7 @@ call plug#end()
 
 " Configure theme
 let base16colorspace=256       	" Access colors present in 256 colorspace
-"colorscheme base16-oceanicnext 	" Set the theme
-colorscheme wal
+colorscheme nord
 
 set nocompatible
 
@@ -57,7 +55,7 @@ set hlsearch               	" Keep matches highlighted.
 set splitbelow             	" Open new windows below the current window.
 set splitright             	" Open new windows right of the current window.
 
-"set cursorline             	" Find the current line quickly.
+set cursorline             	" Find the current line quickly.
 set nowrap                      " Don't wrap lines
 set wrapscan               	" Searches wrap around end-of-file.
 
@@ -87,7 +85,7 @@ nnoremap <leader>8 :<C-u>DeniteCursorWord grep:. -mode=normal<CR> " search for t
 
 " === lightline ===================
 let g:lightline = {
-\ 'colorscheme': 'wal',
+\ 'colorscheme': 'nord',
 \ }
 
 " === deoplete ====================
