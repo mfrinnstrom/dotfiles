@@ -52,12 +52,13 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:/usr/lib/go-1.10/bin
+#export PATH=$PATH:/usr/lib/go-1.10/bin
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Configure AWS
 export AWS_DEFAULT_REGION=eu-west-1
 export AWS_SDK_LOAD_CONFIG=true
+export AWS_CBOR_DISABLE=1
 
 # Source completions
 #source <(kubectl completion zsh)
@@ -87,5 +88,18 @@ function gw() {
     dir=`dirname "$GW"`
     $GW $GRADLE_DEFAULT_OPTS --project-dir $dir $@
   fi
+}
+
+function bamboo-variables-export() {
+    if [ -z $1 ]; then echo "File name is missing"; return; else echo "Using file: $1"; fi
+    echo ""
+
+    while read line; do
+        name=$(echo $line | cut -f1 -d"=")
+        value=$(echo $line | cut -f2 -d"=")
+        variable="bamboo_pipeline_${name//./_}=$value"
+        echo $variable
+        export $variable
+    done < $1
 }
 
