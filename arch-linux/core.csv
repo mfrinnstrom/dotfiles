@@ -1,0 +1,9 @@
+#TAG,NAME IN REPO (or git url),PURPOSE (should be a verb phrase to sound right while installing)
+,efibootmgr,"is a tool to modify UEFI Firmware Boot Manager Variables."
+,htop,"provides system usage information and displays processes."
+,pulseaudio-alsa,"is an audio interface with ALSA."
+,pulsemixer,"is an audio controller."
+,fzf,"is a fuzzy finder tool."
+,youtube-dl,"can download any YouTube video (or playlist or channel) when given the link."
+,neovim,"is terminal text editor."
+#,vifm,"is an extensive terminal file manager."
