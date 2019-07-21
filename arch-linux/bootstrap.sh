@@ -27,7 +27,7 @@ get_dialog() {
 	pacman --noconfirm -Syyu dialog >/dev/null 2>&1
 }
 
-confirm_n_go() { dialog --title "Here we go" --yesno "Are you sure you wanna bootstra this computer?" 6 35 ; }
+confirm_n_go() { dialog --title "Here we go" --yesno "Are you sure you wanna bootstra this computer?" 6 40 ; }
 
 get_deps() {
 	dialog --title "First things first." --infobox "Installing 'base-devel', 'git', and 'linux-headers'." 3 60
@@ -186,4 +186,4 @@ get_deps
 pacman_stuff
 disable_beep
 installationloop
-create_pack_ref
+#create_pack_ref
