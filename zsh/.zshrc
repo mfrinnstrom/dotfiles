@@ -40,6 +40,7 @@ zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 [ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.zalias ] && source ~/.zalias
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.zfunctions/venv-auto-activate.zsh ] && source ~/.zfunctions/venv-auto-activate.zsh
 
 # Key bindings
 bindkey  "^[[H"   beginning-of-line
@@ -48,6 +49,7 @@ bindkey  "^[[3~"  delete-char
 bindkey  "^H"     backward-kill-word
 
 # Configure environment variables
+export GOROOT=/usr/lib/go
 export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
@@ -103,3 +105,6 @@ function bamboo-variables-export() {
     done < $1
 }
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/mattias/.sdkman"
+[[ -s "/home/mattias/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mattias/.sdkman/bin/sdkman-init.sh"
