@@ -40,7 +40,8 @@ zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 [ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.zalias ] && source ~/.zalias
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#[ -f ~/.zfunctions/venv-auto-activate.zsh ] && source ~/.zfunctions/venv-auto-activate.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # Key bindings
 bindkey  "^[[H"   beginning-of-line
@@ -54,18 +55,17 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.local/bin
-#export PATH=$PATH:/usr/lib/go-1.10/bin
-export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Configure AWS
 export AWS_DEFAULT_REGION=eu-west-1
 export AWS_SDK_LOAD_CONFIG=true
 export AWS_CBOR_DISABLE=1
 
+# Configure gradle
+export GRADLE_USER_HOME=$HOME/.gradle
+
 # Source completions
-#source <(kubectl completion zsh)
-source <(npm completion)
-source ~/.local/bin/aws_zsh_completer.sh
+#source /usr/local/bin/aws_completer
 
 # Scripts
 function upfind() {
@@ -105,6 +105,7 @@ function bamboo-variables-export() {
     done < $1
 }
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/mattias/.sdkman"
-[[ -s "/home/mattias/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mattias/.sdkman/bin/sdkman-init.sh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -29,3 +29,6 @@
 [difftool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
     #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
+[includeIf "gitdir:~/projects/serverless-enterprise/"]
+	path = ~/projects/serverless-enterprise/.gitconfig
