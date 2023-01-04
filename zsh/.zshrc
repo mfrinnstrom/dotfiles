@@ -42,6 +42,7 @@ zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /etc/bash_completion.d/azure-cli ] && source /etc/bash_completion.d/azure-cli
 
 # Key bindings
 bindkey  "^[[H"   beginning-of-line
@@ -55,6 +56,10 @@ export GOPATH=$HOME/Go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.local/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$PATH:$HOME/.dotnet/tools"
+export FLYCTL_INSTALL="/home/mattias/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 # Configure AWS
 export AWS_DEFAULT_REGION=eu-west-1
