@@ -35,3 +35,5 @@
 
 [includeIf "gitdir:~/projects/work/"]
 	path = ~/projects/work/.gitconfig
+[core]
+	autocrlf = input
