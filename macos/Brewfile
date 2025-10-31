@@ -30,7 +30,7 @@ cask "google-chrome"                # Web browser
 cask "firefox"                      # Web browser
 cask "slack"                        # Team communication
 cask "spotify"                      # Music streaming
-cask "docker"                       # Container platform
+cask "docker-desktop"                       # Container platform
 cask "rectangle"                    # Window management
 cask "raycast"                      # Productivity and search tool
 cask "1password"                    # Password manager
