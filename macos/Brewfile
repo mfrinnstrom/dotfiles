@@ -1,11 +1,6 @@
 # Homebrew Bundle File
 # Install all packages with: brew bundle --file=Brewfile
 
-# Taps
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-
 # CLI Tools
 brew "git"                          # Version control
 brew "stow"                         # Symlink manager for dotfiles
