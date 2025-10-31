@@ -34,3 +34,4 @@ cask "docker"                       # Container platform
 cask "rectangle"                    # Window management
 cask "raycast"                      # Productivity and search tool
 cask "1password"                    # Password manager
+cask "scroll-reverser"              # Reverse mouse/trackpad scrolling
