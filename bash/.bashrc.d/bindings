@@ -1,0 +1,13 @@
+# Use ctrl keys to move forward and back in words
+bind '"\e[1;5C": forward-word'
+bind '"\e[1;5D": backward-word'
+
+# Use ctrl-backstage to delete previous word
+bind '"\C-H": shell-backward-kill-word'
+
+# Use ctrl-delete to delete next word
+bind '"\e[3;5~": shell-kill-word'
+
+# Cycle through options when autocompleting
+bind 'set show-all-if-ambiguous on'
+#bind 'TAB:menu-complete'

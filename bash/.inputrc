@@ -1,0 +1,4 @@
+$include /etc/inputrc
+
+# Ignore ase when doing auto-complete
+set completion-ignore-case On
