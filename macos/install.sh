@@ -21,18 +21,20 @@ fi
 echo "📦 Updating Homebrew..."
 brew update
 
-# Get the directory where this script is located
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-echo "� Installing packages from Brewfile..."
-brew bundle --file="${SCRIPT_DIR}/Brewfile"
+echo "🔑 Installing 1Password..."
+brew install --cask 1password
 
 echo "🧹 Cleaning up..."
 brew cleanup
 
 echo "✅ Installation complete!"
 echo ""
+echo "⚠️  This script only installs 1Password for initial setup."
+echo ""
 echo "Next steps:"
-echo "1. Run ./configure-macos.sh to configure macOS settings"
-echo "2. Use stow to symlink dotfiles (e.g., 'stow nvim' from ~/.dotfiles)"
-echo "3. Restart your terminal or run: source ~/.zshrc"
+echo "1. Clone the dotfiles repository: git clone <your-repo-url> ~/.dotfiles"
+echo "2. cd ~/.dotfiles/macos"
+echo "3. Install remaining packages: brew bundle --file=Brewfile"
+echo "4. Run ./configure-macos.sh to configure macOS settings"
+echo "5. Use stow to symlink dotfiles (e.g., 'stow nvim' from ~/.dotfiles)"
+echo "6. Restart your terminal or run: source ~/.zshrc"
