@@ -1,0 +1,41 @@
+# Homebrew Bundle File
+# Install all packages with: brew bundle --file=Brewfile
+
+# Taps
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+
+# CLI Tools
+brew "git"                          # Version control
+brew "stow"                         # Symlink manager for dotfiles
+brew "neovim"                       # Modern vim-based text editor
+brew "fzf"                          # Fuzzy finder for command line
+brew "starship"                     # Cross-shell prompt
+brew "zsh"                          # Z shell
+brew "zsh-completions"              # Additional completions for zsh
+brew "zsh-syntax-highlighting"      # Syntax highlighting for zsh
+brew "zsh-autosuggestions"          # Fish-like autosuggestions for zsh
+brew "tree"                         # Display directory structure
+brew "htop"                         # Interactive process viewer
+brew "curl"                         # Transfer data with URLs
+brew "jq"                           # Command-line JSON processor
+brew "gh"                           # GitHub CLI
+
+# Fonts
+cask "font-jetbrains-mono-nerd-font"    # JetBrains Mono with Nerd Font icons
+cask "font-fira-code-nerd-font"         # Fira Code with Nerd Font icons
+cask "font-hack-nerd-font"              # Hack with Nerd Font icons
+
+# GUI Applications
+cask "ghostty"                      # Modern terminal emulator
+cask "visual-studio-code"           # Code editor
+cask "jetbrains-toolbox"            # JetBrains IDEs manager
+cask "google-chrome"                # Web browser
+cask "firefox"                      # Web browser
+cask "slack"                        # Team communication
+cask "spotify"                      # Music streaming
+cask "docker"                       # Container platform
+cask "rectangle"                    # Window management
+cask "raycast"                      # Productivity and search tool
+cask "1password"                    # Password manager
