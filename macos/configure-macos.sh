@@ -37,7 +37,7 @@ defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 ###############################################################################
-# Trackpad, mouse, keyboard, Bluetooth accessories, and input                #
+# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
 echo "⌨️  Configuring Input Devices..."
@@ -121,7 +121,14 @@ chflags nohidden ~/Library
 sudo chflags nohidden /Volumes
 
 ###############################################################################
-# Dock, Dashboard, and hot corners                                           #
+# Desktop                                                                     #
+###############################################################################
+
+# Disable standard click to show desktop
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop 0
+
+###############################################################################
+# Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
 echo "🎯 Configuring Dock..."
