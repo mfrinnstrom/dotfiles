@@ -1,3 +1,6 @@
+# Styling
+theme = Nord
+
 # Initial terminal window size
-window-height=36
-window-width=132
+window-height = 36
+window-width = 132
