@@ -3,19 +3,6 @@ alias ls='ls --color=auto'
 alias la='ls -la --color=auto'
 alias ll='ls -l --color=auto'
 
-# Bluetooth
-alias soundon='~/.dotfiles/bin/reconnect-headphones.sh'
-
-# AWS
-#alias assume-role='function(){eval $(command assume-role $@);}'
-#alias update-stack=$HOME/Projects/DSS/common-services/common-deploy-scripts/create-or-update-stack.sh
-#alias update-service=$HOME/Projects/DSS/common-services/common-deploy-scripts/create-or-update-service.sh
-#alias create-change-set=$HOME/Projects/DSS/common-services/common-deploy-scripts/create-change-set.sh
-#alias valcf="aws --region eu-west-1 --profile lab cloudformation validate-template --template-body file://$*"
-alias create-change-set=$HOME/Projects/DSS/infra-ops/tools/cloudformation/create-change-set.sh
-alias execute-change-set=$HOME/Projects/DSS/infra-ops/tools/cloudformation/execute-change-set.sh
-alias create-or-update-stack=$HOME/Projects/DSS/infra-ops/tools/cloudformation/create-or-update-stack.sh
-
 # Tools
 alias uuids='for i in {1..20}; uuidgen'
 alias untar='tar -zxvf '

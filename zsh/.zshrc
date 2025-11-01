@@ -1,6 +1,4 @@
-# Load zplug config if available
-[ -f ~/.zplugrc ] && source ~/.zplugrc
-
+# Configure shell
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -39,78 +37,10 @@ zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 # Source additional config files
 [ -f ~/.zprofile ] && source ~/.zprofile
 [ -f ~/.zalias ] && source ~/.zalias
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f /etc/bash_completion.d/azure-cli ] && source /etc/bash_completion.d/azure-cli
+source <(fzf --zsh)
 
 # Key bindings
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
 bindkey  "^H"     backward-kill-word
-
-# Configure environment variables
-export GOROOT=/usr/lib/go
-export GOPATH=$HOME/Go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="$PATH:$HOME/.dotnet/tools"
-export FLYCTL_INSTALL="/home/mattias/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-# Configure AWS
-export AWS_DEFAULT_REGION=eu-west-1
-export AWS_SDK_LOAD_CONFIG=true
-export AWS_CBOR_DISABLE=1
-
-# Configure gradle
-export GRADLE_USER_HOME=$HOME/.gradle
-
-# Source completions
-#source /usr/local/bin/aws_completer
-
-# Scripts
-function upfind() {
-  dir=`pwd`
-  while [ "$dir" != "/" ]; do
-    p=`find "$dir" -maxdepth 1 -name $1`
-    if [ ! -z $p ]; then
-      echo "$p"
-      return
-    fi
-    dir=`dirname "$dir"`
-  done
-}
-
-# Find closest Gradle wrapper
-export GRADLE_DEFAULT_OPTS=''
-function gw() {
-  GW="$(upfind gradlew)"
-  if [ -z "$GW" ]; then
-    echo "Gradle wrapper not found."
-  else
-    dir=`dirname "$GW"`
-    $GW $GRADLE_DEFAULT_OPTS --project-dir $dir $@
-  fi
-}
-
-function bamboo-variables-export() {
-    if [ -z $1 ]; then echo "File name is missing"; return; else echo "Using file: $1"; fi
-    echo ""
-
-    while read line; do
-        name=$(echo $line | cut -f1 -d"=")
-        value=$(echo $line | cut -f2 -d"=")
-        variable="bamboo_pipeline_${name//./_}=$value"
-        echo $variable
-        export $variable
-    done < $1
-}
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
