@@ -31,11 +31,11 @@ cask "google-chrome"                # Web browser
 cask "firefox"                      # Web browser
 cask "slack"                        # Team communication
 cask "spotify"                      # Music streaming
-cask "docker-desktop"                       # Container platform
+cask "docker-desktop"               # Container platform
 cask "rectangle"                    # Window management
 cask "raycast"                      # Productivity and search tool
 cask "1password"                    # Password manager
 cask "scroll-reverser"              # Reverse mouse/trackpad scrolling
-cask "dotnet-sdk"                   # .NET SDKs
-cask "easy-move+resize"        # Window management
+cask "easy-move+resize"             # Window management
 cask "dockdoor"                     # Customize Dock appearance
+cask "hiddenbar"                    # Hide menu bar items
