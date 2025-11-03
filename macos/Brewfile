@@ -38,4 +38,4 @@ cask "1password"                    # Password manager
 cask "scroll-reverser"              # Reverse mouse/trackpad scrolling
 cask "easy-move+resize"             # Window management
 cask "dockdoor"                     # Customize Dock appearance
-cask "hiddenbar"                    # Hide menu bar items
+cask "jordanbaird-ice"              # Menubar customization
