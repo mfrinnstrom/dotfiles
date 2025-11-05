@@ -28,8 +28,8 @@ cask "ghostty"                      # Modern terminal emulator
 cask "visual-studio-code"           # Code editor
 cask "jetbrains-toolbox"            # JetBrains IDEs manager
 cask "google-chrome"                # Web browser
-cask "firefox"                      # Web browser
 cask "slack"                        # Team communication
+cask "discord"                      # Chat for communities
 cask "spotify"                      # Music streaming
 cask "docker-desktop"               # Container platform
 cask "rectangle"                    # Window management
@@ -39,3 +39,4 @@ cask "scroll-reverser"              # Reverse mouse/trackpad scrolling
 cask "easy-move+resize"             # Window management
 cask "dockdoor"                     # Customize Dock appearance
 cask "jordanbaird-ice"              # Menubar customization
+cask "github"                       # GitHub desktop
